@@ -1,30 +1,40 @@
 package com.bxxxdx.backjoon;
 
-import java.util.Scanner;
-import java.util.Arrays;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Practice_2775 {
-	//실패.. 어렵다 담에 다시하자.
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int testCase = sc.nextInt();
-		String ans = "";
-		//int floor = 0;
-		for(int i=0;i<testCase;i++) {
-			int k = sc.nextInt();
-			int n = sc.nextInt();
-			int floor[][] = new int[k][n];
-			for(int j=0;j<n;j++) {
-				floor[0][j] = j+1;
-			}
-			for(int l=1;l<k;l++) {
-				for(int m=0;m<n;m++) {
-					floor[l][m] = floor[l][m] + floor[l-1][m];
+	//런타임에러
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader testCase = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(testCase.readLine());
+		String result = "";
+		for (int i = 0; i < N; i++) {
+			BufferedReader floor = new BufferedReader(new InputStreamReader(System.in));
+			int k = Integer.parseInt(floor.readLine());
+
+			BufferedReader room = new BufferedReader(new InputStreamReader(System.in));
+			int n = Integer.parseInt(room.readLine());
+
+			int[][] arr = new int[k + 1][n];
+			for (int a = 0; a < k + 1; a++) {
+				for (int b = 0; b < n; b++) {
+					if(a==0) {
+						arr[a][b] = b+1;
+					}
+					else {
+						arr[a][b] = 0;
+						for(int c = 0; c <= b ; c ++ ) {
+							arr[a][b] += arr[a-1][c];
+						}
+					}
+//					System.out.print(arr[a][b] + " " );
 				}
 			}
-			System.out.println(Arrays.deepToString(floor));	
-						
+//			System.out.println(arr[k][n-1]);
+			result += arr[k][n-1] + "\n";
 		}
+		System.out.println(result);
 	}
-
 }
