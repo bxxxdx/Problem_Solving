@@ -10,7 +10,6 @@ public class Practice_10757 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String[] input = br.readLine().split(" ");
-		System.out.println(input[0] + " " + input[1]);
 		String large = "";
 		String small = "";
 		if(input[0].length() > input[1].length()) {
@@ -26,7 +25,6 @@ public class Practice_10757 {
 		StringBuffer tempSmall = new StringBuffer(small);
 		String num2 = tempSmall.reverse().toString();
 		
-		System.out.println(num1 + " " + num2);
 		
 		StringBuffer result = new StringBuffer();
 		int ceilFlag = 0;
@@ -41,7 +39,11 @@ public class Practice_10757 {
 					ceilFlag = 0;
 				}
 				result.append(temp);
+				if(num1.length() == num2.length() && i==num2.length()-1 && ceilFlag==1) {
+					result.append(ceilFlag);
+				}
 			}
+			
 			else if(i<num1.length()) {
 				int temp = num1.charAt(i)-48 + ceilFlag;
 				if(temp>=10) {
@@ -52,13 +54,12 @@ public class Practice_10757 {
 					ceilFlag = 0;
 				}
 				result.append(temp);
-			}
-			else if(i<num1.length()) {
-				int temp = num1.charAt(i) + ceilFlag;
-				result.append(temp);
+				if(num1.length()>num2.length() && i==num1.length()-1 && ceilFlag==1) {
+					result.append(ceilFlag);
+				}
 			}
 		}
-		System.out.println("정답 : " + result.reverse());
+		System.out.println(result.reverse());
 		
 		
 		
