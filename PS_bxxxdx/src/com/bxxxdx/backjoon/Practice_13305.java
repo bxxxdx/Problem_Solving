@@ -26,7 +26,7 @@ public class Practice_13305 {
 		while (i < N - 1) {
 //			System.out.println("i : " + i);
 			long dis = distance[i]; // 단위거리
- 
+  
 			int j = i + 1;
 			while (j < N) {
 //				System.out.println("i : " + i + " / j : " + j);
