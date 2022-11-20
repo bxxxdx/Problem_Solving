@@ -16,19 +16,18 @@ public class Practice_1715 {
 		}
 		
 		int a = 0;
-		int b = pq.poll();
-		int sumA = 0;
-		int sumB = b;
-		while(pq.peek()!=null) {
-			a = b;
-			b = pq.poll();
-			sumA += (a+b);
-			sumB += b;
-			if(pq.size()>0) {
-				pq.add(a+b);
+		int b = 0;
+		int temp = 0;
+		int sum = 0;
+		while(pq.peek() != null) {
+			a = pq.poll();
+			if(pq.peek() != null) {
+				b = pq.poll();
+				temp = a+b;
+				pq.add(temp);
+				sum += temp;
 			}
 		}
-		System.out.println(sumA + " " + sumB);
-//		System.out.println(sumA+sumC);
+		System.out.println(sum);
 	}
 }
