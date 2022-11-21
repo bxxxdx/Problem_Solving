@@ -12,6 +12,11 @@ public class Practice_1439 {
 		int zeroCount = 0;
 		int oneCount = 0;
 		char pastState = S.charAt(0);
+		if(pastState == '0') {
+			zeroCount++;
+		}else if(pastState == '1') {
+			oneCount++;
+		}
 		char presentState = '0';
 		for (int i = 1; i < S.length(); i++) {
 			presentState = S.charAt(i);
@@ -23,10 +28,7 @@ public class Practice_1439 {
 			}
 			pastState = presentState;
 		}
-		int result = 0;
-		if(zeroCount > oneCount) result = oneCount;
-		else result = zeroCount;
-		if((zeroCount == 1 && oneCount == 0)||(zeroCount == 0 && oneCount == 1)) result = 1;
-		System.out.println(result);
+		System.out.println(zeroCount<oneCount?zeroCount:oneCount);
+		
 	}
 }
