@@ -3,7 +3,6 @@ package com.bxxxdx.backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.PriorityQueue;
 
 public class Practice_1049 {
 	public static void main(String[] args) throws IOException {
