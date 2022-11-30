@@ -3,8 +3,8 @@ package com.bxxxdx.backjoon;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
+
 //10 
 //ABB
 //BB
@@ -23,45 +23,21 @@ public class Practice_1339 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int N = Integer.parseInt(br.readLine());
-		char[][] arr = new char[N][8];
-
-		Map<Character, Integer> map = new HashMap();
-		
+		int[] alpha = new int[26];
 		for (int n = 0; n < N; n++) {
-			String str = br.readLine();
-			int spaceLength = 8 - str.length();
-			for (int i = 0; i < spaceLength; i++) {
-				arr[n][i] = ' ';
-			}
-			for (int i = 0; i < str.length(); i++) {
-				arr[n][i + spaceLength] = str.charAt(i);
+			String line = br.readLine();
+			int num = (int) Math.pow(10, line.length()-1);
+			for (int i = 0; i < line.length(); i++) {
+				alpha['Z'-line.charAt(i)] += num;
+				num /= 10;
 			}
 		}
-		int insertCount = 9;
-//		int [][] result = new int[N][8];
-		int[] intResult = new int[N];
-		for (int j = 0; j < 8; j++) {
-			for (int i = 0; i < N; i++) {
-				if(!map.containsKey(arr[i][j]) && arr[i][j] != ' ') {
-					map.put(arr[i][j], insertCount--);
-//					result[i][j] = map.get(arr[i][j]);
-					intResult[i] = intResult[i] * 10 + map.get(arr[i][j]);
-				}
-				else if(map.containsKey(arr[i][j]) && arr[i][j] != ' ') {
-//					result[i][j] = map.get(arr[i][j]);
-					intResult[i] = intResult[i] * 10 + map.get(arr[i][j]);
-				}
-			}
-		}
-		int output = 0;
-//		for(int i=0;i<result.length;i++) {
-//			System.out.println(Arrays.toString(result[i]));
-//		}
-		for(int i=0;i<intResult.length;i++) {
-			output += intResult[i];
-		}
-		System.out.println(output);
+		Arrays.sort(alpha);
 		
-
+		int result = 0;
+		for(int i=25; i>=16; i--) {
+			result += alpha[i]*(i-16);
+		}
+		System.out.println(result);
 	}
 }
