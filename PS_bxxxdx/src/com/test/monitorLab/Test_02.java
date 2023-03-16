@@ -11,7 +11,7 @@ public class Test_02 {
 		long answer = 0;
 		long[][] dp = new long[r + 1][c + 1];
 		dp[1][1] = 0;
-		for (int i = 1; i <= r; i++) {
+		for (int i = 1; i <= r; i++) { 
 			dp[i][1] = 1;
 		}
 		for (int i = 1; i <= c; i++) {

@@ -9,7 +9,7 @@ public class Test_03 {
 
 	public static int solution(int n, int[] v) {
 		int answer = -1;
-
+ 
 		int maxPrice = v[0];
 		int temp;
 		for (int i = 1; i < n; i++) {

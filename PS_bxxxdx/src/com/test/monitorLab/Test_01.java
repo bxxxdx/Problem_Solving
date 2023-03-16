@@ -4,8 +4,8 @@ public class Test_01 {
 	public static void main(String[] args) {
 		solution("2220281");
 	}
-
-	public static String solution(String s) {
+ 
+	public static String solution(String s) { 
 		String answer = "";
 		char[][] arr = { { ' ', ' ', ' ' }, { '.', 'Q', 'Z' }, { 'A', 'B', 'C' }, { 'D', 'E', 'F' }, { 'G', 'H', 'I' },
 				{ 'J', 'K', 'L' }, { 'M', 'N', 'O' }, { 'P', 'R', 'S' }, { 'T', 'U', 'V' }, { 'W', 'X', 'Y' } };
