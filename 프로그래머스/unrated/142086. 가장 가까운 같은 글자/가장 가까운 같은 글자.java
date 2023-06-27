@@ -3,7 +3,7 @@ class Solution {
         int[] answer = new int[s.length()];
         for(int i=0;i<s.length();i++){
             char temp = s.charAt(i);
-            int count = 1;
+            int count = 0;
             boolean flag = false;
             for(int j=i-1;j>=0;j--){
                 char temp2 = s.charAt(j);
